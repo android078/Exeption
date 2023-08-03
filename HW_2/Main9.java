@@ -1,5 +1,8 @@
 package HW_2;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 // Разработайте программу, которая выбросит Exception, когда пользователь вводит пустую строку. 
@@ -7,28 +10,15 @@ import java.util.Scanner;
 
 public class Main9 {
     public static void main(String[] args) {
-        try{
-            emptyStringCheck();
-        } catch (IllegalArgumentException e) {
-            e.getMessage();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Введите любой текст");
+        try {
+            String result = reader.readLine();
+            if(result.equals("")) throw new RuntimeException("Пустую строку вводить нельзя");
 
+            System.out.println(result);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-    }
-
-    private static void emptyStringCheck() {
-        String string;
-
-        System.out.println("Введите строку");
-        try (Scanner scan = new Scanner(System.in)) {
-            string = scan.nextLine();
-        }
-        if(string.isEmpty()){
-            //throw new IllegalArgumentException("Пустую строку нельзя вводить");
-            System.out.println("Пустую строку нельзя вводить");
-            
-        } else {
-            System.out.println("Все в порядке");
-        }
-
     }
 }
