@@ -11,6 +11,13 @@ import Exeptions.CountSexException;
 import InputWorks.InputString;
 
 public class Preparing {
+    /**
+     * Разбор строки с инфрмацией об абоненте на составляющие
+     * с возвратом структурированной строки
+     *
+     * @param inStr
+     * @param outStr
+     */
      public static boolean PreparingArray(String[] inStr, String[] outStr) {
         boolean next = false;
         try {
@@ -27,7 +34,11 @@ public class Preparing {
         return next;
     }
 
-    
+    /**
+     * Метод определяет, является ли элемент датой
+     * @param pDate
+     * @return
+     */
     public static boolean IsBDateFormat(String pDate) {
         boolean bdFormat = false;
         boolean digits = false;
@@ -50,7 +61,13 @@ public class Preparing {
         return bdFormat;
     }
 
-    
+    /**
+     * Выделяет элементы, соответствующие ФИО (не содержащие цифр и точек) и помещает значения на
+     * фиксированные позиции в промежуточном массиве
+     * @param str
+     * @param outStr
+     * @return
+     */
     public static String[] findFIO(String[] str, String[] outStr) {
         //int counter = 0;
         int currIndex = 0;
@@ -76,7 +93,12 @@ public class Preparing {
         return arr;
     }
 
-    
+    /**
+     * Выделяет элементы, соответствующие дню рождения (содержащие цифры и точки) и помещает значения на
+     * фиксированные позиции в промежуточном массиве
+     * @param inStr
+     * @param outStr
+     */
     public static void findBDay(String[] inStr, String[] outStr) {
         int limitCount = 1;
         int count = 0;
@@ -94,7 +116,12 @@ public class Preparing {
         }
     }
 
-    
+    /**
+     * Выделяет элементы, соответствующие номеру телефона (содержащие только цифры) и помещает значения на
+     * фиксированные позиции в промежуточном массиве
+     * @param inStr
+     * @param outStr
+     */
     public static void findPhone(String[] inStr, String[] outStr) {
         int foundCount = 0;
         int limitCount = 1;
@@ -109,7 +136,12 @@ public class Preparing {
         }
     }
 
-    
+    /**
+     * Выделяет элементы, соответствующие полу (содержащие только одну букву) и помещает значения на
+     * фиксированные позиции в промежуточном массиве
+     * @param inStr
+     * @param outStr
+     */
     public static void findSex(String[] inStr, String[] outStr) {
         int foundCount = 0;
         int limitCount = 1;
@@ -124,7 +156,12 @@ public class Preparing {
         }
     }
 
-    
+    /**
+     * Проверка на соответствие полноты данных строки с информацией об абоненте
+     *
+     * @param entered
+     * @param needed
+     */
     public static boolean inputCheck(int needed, int entered) {
         boolean more = false;
         if (entered < needed) {

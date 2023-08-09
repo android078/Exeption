@@ -9,12 +9,17 @@ import Abonents.Abonents;
 
 
 public class FileWorks {
+    /**
+     * Печать данных из массива абонентов в файлы
+     * @param list
+     * @throws WriteInFileException
+     */
     public static void printAll(ArrayList<Abonents> list) throws WriteInFileException {
         String tempName;
         ArrayList<Abonents> tempArr;
         String wrString = "";
         String fileName = "";
-        //int printCount = 0;
+        int printCount = 0;
         HashSet<String> tempSet = new HashSet<>();
 
         for (int i = 0; i < list.size(); i++) {
@@ -24,7 +29,7 @@ public class FileWorks {
                     tempSet.add(tempName);
                     tempArr = new ArrayList<>();
                     tempArr = getNamesakes(list, tempName);
-                    fileName = "HW_3/" + tempName + ".txt";
+                    fileName = "HW_3\\" + tempName + ".txt";
                     //fileName = "HW_3.txt";
                     try (FileWriter writer = new FileWriter(fileName)) {
                         wrString = "";
@@ -44,7 +49,7 @@ public class FileWorks {
                 }
         }
 
-    /*
+    /**
      * Метод поиска однофамильцев
      * @param abList
      * @param pos
